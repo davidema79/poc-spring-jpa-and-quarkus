@@ -1,0 +1,35 @@
+app:
+  datasources:
+    first:
+      credentials:
+        username: ${PG_USER}
+        password: ${PG_PWD}
+      host: localhost
+      port: 5432
+      name: poc
+      schema: public
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://${app.datasources.first.host}:${app.datasources.first.port}/${app.datasources.first.name}?currentSchema=${app.datasources.first.schema}
+    second:
+      credentials:
+        username: ${MYSQL_USER}
+        password: ${MYSQL_PWD}
+      host: localhost
+      port: 3306
+      name: poc
+      schema: public
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://${app.datasources.second.host}:${app.datasources.second.port}/${app.datasources.second.name}
+
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: ${app.datasources.first.credentials.username}
+    password: ${app.datasources.first.credentials.password}
+    jdbc:
+      url: ${app.datasources.first.url}
+      max-size: 8
+      min-size: 2
+  http:
+    port: 8081
+    root-path: /quarkus/api
