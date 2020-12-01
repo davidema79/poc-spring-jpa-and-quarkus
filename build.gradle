@@ -51,9 +51,10 @@ test {
     systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
 }
 
-//quarkusBuild {
-//    nativeArgs {
-//        containerBuild = true
-//        buildImage = "quay.io/quarkus/ubi-quarkus-native-image:19.3.2-java11"
-//    }
-//}
+quarkusBuild {
+    nativeArgs {
+        containerBuild = true
+        buildImage = "quay.io/quarkus/ubi-quarkus-native-image:19.3.2-java11"
+        quarkusApplicationName= "poc-quarkus"
+    }
+}

@@ -1,0 +1,14 @@
+app:
+  datasources:
+    first:
+      host: 10.88.160.3
+      port: 5432
+      credentials:
+        username: ${sm://sql-instance01-username}
+        password: ${sm://sql-instance01-password}
+    second:
+      host: 10.88.161.3
+      port: 3306
+      credentials:
+        username: ${sm://sql-instance02-username}
+        password: ${sm://sql-instance02-password}

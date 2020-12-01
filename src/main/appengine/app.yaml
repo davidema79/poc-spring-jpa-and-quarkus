@@ -1,0 +1,9 @@
+service: poc-spring-quarkus-test-01
+runtime: java11
+env: standard
+
+vpc_access_connector:
+  name: "projects/deustchebankpocforgcp-01/locations/europe-west1/connectors/mysql-region-connector"
+
+manual_scaling:
+  instances: 1
